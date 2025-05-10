@@ -26,7 +26,7 @@ public class Dijkstra<T> implements ShortestPath<T> {
 
 		
 		dist.put(src, 0);
-        pred.put(src, null);
+        	pred.put(src, null);
         
 		T sommetActuel = src;
 		sommets_reconnus.add(sommetActuel);
@@ -68,7 +68,7 @@ public class Dijkstra<T> implements ShortestPath<T> {
 			sommets_reconnus.add(sommetActuel);
 			
 			dist.put(sommetActuel, poids_arc);
-	        pred.put(sommetActuel, son_pred);
+	       		pred.put(sommetActuel, son_pred);
 			
 			
 		}
