@@ -30,4 +30,24 @@ public class GrapheHHAdj implements VarGraph {
 			graph.get(source).add(new Arc<>(valeur,destination));
 		}
 	}
+	
+	@Override
+	public String toString() {
+	    StringBuilder sb = new StringBuilder();
+
+	    for (Map.Entry<String, List<Arc<String>>> entry : graph.entrySet()) { // boucle pour chaque indice dans la map afin de voir tous les arcs de chaque sommet
+	    	List<Arc<String>> arcs = entry.getValue();
+	    	if(arcs == null || arcs.isEmpty() ) {
+	    		sb.append(entry.getKey()).append(":");	
+	    	}
+	    	else {
+	    		for(Arc<String> arc: arcs)
+	    	        sb.append(entry.getKey()).append("-").append(arc.dst()).append("(").append(arc.val()).append(")");
+	    	}
+	    	sb.append(", ");
+	    }
+	    
+	    sb.setLength(sb.length() - 2); //supprime la virgule a la fin
+	    return sb.toString();
+	}
 }
