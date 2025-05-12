@@ -38,13 +38,13 @@ public class GrapheHHAdj implements VarGraph {
 	    for (Map.Entry<String, List<Arc<String>>> entry : graph.entrySet()) { // boucle pour chaque indice dans la map afin de voir tous les arcs de chaque sommet
 	    	List<Arc<String>> arcs = entry.getValue();
 	    	if(arcs == null || arcs.isEmpty() ) {
-	    		sb.append(entry.getKey()).append(":");	
+	    		sb.append(entry.getKey()).append(":").append(", ");
 	    	}
 	    	else {
 	    		for(Arc<String> arc: arcs)
-	    	        sb.append(entry.getKey()).append("-").append(arc.dst()).append("(").append(arc.val()).append(")");
+	    	        sb.append(entry.getKey()).append("-").append(arc.dst()).append("(").append(arc.val()).append(")").append(", ");
 	    	}
-	    	sb.append(", ");
+	    	
 	    }
 	    
 	    sb.setLength(sb.length() - 2); //supprime la virgule a la fin
