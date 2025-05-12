@@ -17,6 +17,10 @@ public class Dijkstra<T> implements ShortestPath<T> {
 	// revoie un type Distances qui compose des plus courts chemins et leurs predecesseurs
 	@Override
 	public Distances<T> compute(Graph<T> g, T src, Animator<T> animator) throws IllegalArgumentException{
+		return compute(g, src);
+	}
+	@Override
+	public Distances<T> compute(Graph<T> g, T src) throws IllegalArgumentException{
 		
 		
 		Map<T,Integer> dist = new HashMap<>();
