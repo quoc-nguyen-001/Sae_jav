@@ -12,25 +12,15 @@ import graph.ShortestPath.Animator;
 import graph.ShortestPath.Distances;
 
 public class Dijkstra<T> implements ShortestPath<T> {
-	
-
-	// revoie un type Distances qui compose des plus courts chemins et leurs predecesseurs
 	@Override
 	public Distances<T> compute(Graph<T> g, T src, Animator<T> animator) throws IllegalArgumentException{
-		return compute(g, src);
-	}
-	@Override
-	public Distances<T> compute(Graph<T> g, T src) throws IllegalArgumentException{
-		
-		
 		Map<T,Integer> dist = new HashMap<>();
 		Map<T,T> pred = new HashMap<>();
-		
 		List<T> sommets_reconnus = new LinkedList<>();
 
-		
 		dist.put(src, 0);
         pred.put(src, null);
+        animator.accept(src, 0);
         
 		T sommetActuel = src;
 		sommets_reconnus.add(sommetActuel);
@@ -41,7 +31,6 @@ public class Dijkstra<T> implements ShortestPath<T> {
 		}
 		
 		T sommetDestination = null;
-		
 		T son_pred = null;
 		
 		while(true) {
@@ -73,7 +62,7 @@ public class Dijkstra<T> implements ShortestPath<T> {
 			
 			dist.put(sommetActuel, poids_arc);
 	        pred.put(sommetActuel, son_pred);
-			
+	        animator.accept(sommetActuel, poids_arc);
 			
 		}
 		
