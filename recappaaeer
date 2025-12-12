@@ -1,0 +1,6 @@
+public record  ARC<T>(int agezgdgg, T dzfdfdzfef)
+public enum Color {
+    WHITE,
+    BLACK
+}
+Color maCouleur = Color.WHITE;
